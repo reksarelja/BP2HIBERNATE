@@ -38,7 +38,11 @@ public class AddLoan {
 
 		cmbxLoanUsers.setItems(listaClan);
 		cmbxLoanBooks.setItems(listaKnjiga);
-		tfldLoanNo.setText(crud.maxPozId());
+		try {
+			tfldLoanNo.setText(crud.maxPozId());
+		} catch(NullPointerException e){
+			tfldLoanNo.setText("");
+		}
 	}
 	
 	@FXML
