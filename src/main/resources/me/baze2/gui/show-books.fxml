@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="460.0" prefWidth="780.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.baze2.gui.ShowBooks">
+   <children>
+      <HBox alignment="CENTER" prefHeight="70.0" prefWidth="780.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="70.0" prefWidth="487.0" text="Show books from user">
+               <font>
+                  <Font size="48.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="55.0" prefWidth="780.0">
+         <children>
+            <ComboBox fx:id="cmbxSelectUser" onAction="#onCmbxSelectUser" prefWidth="150.0" promptText="Users" />
+         </children>
+      </HBox>
+      <HBox prefHeight="360.0" prefWidth="780.0">
+         <children>
+            <TableView fx:id="tblBooks" prefHeight="460.0" prefWidth="780.0">
+              <columns>
+                <TableColumn fx:id="colID" prefWidth="182.0" text="ID" />
+                <TableColumn fx:id="colTitle" prefWidth="187.0" text="Title" />
+                  <TableColumn fx:id="colYear" prefWidth="128.0" text="Year of publishing" />
+                  <TableColumn fx:id="colCopies" prefWidth="120.0" text="Number of copies" />
+                  <TableColumn fx:id="colCategory" prefWidth="162.0" text="Category" />
+              </columns>
+            </TableView>
+         </children>
+      </HBox>
+   </children>
+</VBox>
