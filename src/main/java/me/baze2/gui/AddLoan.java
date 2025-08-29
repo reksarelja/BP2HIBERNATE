@@ -1,6 +1,8 @@
 package me.baze2.gui;
 
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
@@ -24,11 +26,18 @@ public class AddLoan {
 	@FXML
 	private TextField tfldLoanTakenDate;
 
+	private final ObservableList<Rdj15823Clan> listaClan = FXCollections.observableArrayList();
+	private final ObservableList<Rdj15823Knjiga> listaKnjiga = FXCollections.observableArrayList();
+
+
 	private final Crud crud = new Crud();
 	
 	public void initialize(){
-		cmbxLoanUsers.setItems(crud.listClan());
-		cmbxLoanBooks.setItems(crud.listKnjiga());
+		listaClan.setAll(crud.listClan());
+		listaKnjiga.setAll(crud.listKnjiga());
+
+		cmbxLoanUsers.setItems(listaClan);
+		cmbxLoanBooks.setItems(listaKnjiga);
 		tfldLoanNo.setText(crud.maxPozId());
 	}
 	
@@ -43,9 +52,12 @@ public class AddLoan {
 		}finally {
 			tfldLoanNo.setText(crud.maxPozId());
 			tfldLoanTakenDate.clear();
+
 			cmbxLoanUsers.getSelectionModel().clearSelection();
 			cmbxLoanBooks.getSelectionModel().clearSelection();
 
+			listaClan.setAll(crud.listClan());
+			listaKnjiga.setAll(crud.listKnjiga());
 		}
 	}
 	
