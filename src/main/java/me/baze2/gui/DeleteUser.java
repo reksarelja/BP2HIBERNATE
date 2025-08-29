@@ -12,7 +12,7 @@ public class DeleteUser {
 	@FXML
 	ComboBox<Rdj15823Clan> cmbxDeleteUsers;
 
-	private ObservableList<Rdj15823Clan> list = FXCollections.observableArrayList();
+	private final ObservableList<Rdj15823Clan> list = FXCollections.observableArrayList();
 
 	private final Crud crud = new Crud();
 	
