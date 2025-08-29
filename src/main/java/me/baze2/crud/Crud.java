@@ -1,7 +1,6 @@
 package me.baze2.crud;
 
 import jakarta.persistence.*;
-import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
@@ -48,8 +47,7 @@ public class Crud {
 		return l;
 	}
 	public void insertClan(Long jmbg, String ime, String prezime){
-		EntityManager em = pem.getEntityManager();
-		try {
+		try(EntityManager em = pem.getEntityManager()) {
 
 			Rdj15823Clan clan = new Rdj15823Clan();
 			clan.setId(jmbg);
@@ -59,10 +57,8 @@ public class Crud {
 			em.persist(clan);
 			em.getTransaction().commit();
 
-		} catch(PersistenceException e){
+		} catch(PersistenceException e) {
 			new Alert(Alert.AlertType.ERROR, "Jmbg already exists!", ButtonType.OK).showAndWait();
-		} finally{
-			em.close();
 		}
 	}
 	public void deleteClan(Rdj15823Clan clan){
@@ -73,8 +69,7 @@ public class Crud {
 		em.close();
 	}
 	public void addPozajmica(Long id, Rdj15823Clan clan, Rdj15823Knjiga knjiga, LocalDate date){
-		EntityManager em = pem.getEntityManager();
-		try{
+		try(EntityManager em = pem.getEntityManager()) {
 			Rdj15823Pozajmica pozajmica = new Rdj15823Pozajmica();
 			pozajmica.setId(id);
 			pozajmica.setClanClan(clan);
@@ -83,11 +78,8 @@ public class Crud {
 			em.getTransaction().begin();
 			em.persist(pozajmica);
 			em.getTransaction().commit();
-
-		} catch (PersistenceException e){
+		} catch(PersistenceException e) {
 			new Alert(Alert.AlertType.ERROR, "Out of book copies or Pozajmica number already exists", ButtonType.OK).showAndWait();
-		} finally{
-			em.close();
 		}
 	}
 	public String maxPozId(){
