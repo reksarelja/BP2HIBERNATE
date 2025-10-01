@@ -10,6 +10,8 @@ import java.time.LocalDate;
 @Table(name = "RDJ15823_POZAJMICA")
 public class Pozajmica {
 	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@SequenceGenerator(name = "poz_seq", sequenceName = "RDJ15823_POZSEQ", allocationSize = 1)
 	@Column(name = "POZAJMICA_BROJ", nullable = false)
 	private int id;
 

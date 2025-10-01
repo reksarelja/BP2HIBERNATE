@@ -51,7 +51,7 @@ public class AddLoan {
 	@FXML
 	public void onBtnLoadAdd(){
 		try {
-			crud.addPozajmica(Integer.parseInt(tfldLoanNo.getText()), cmbxLoanUsers.getValue(), cmbxLoanBooks.getValue(), LocalDate.parse(tfldLoanTakenDate.getText()));
+			crud.addPozajmica(cmbxLoanUsers.getValue(), cmbxLoanBooks.getValue(), LocalDate.parse(tfldLoanTakenDate.getText()));
 		} catch(NumberFormatException e) {
 			new Alert(Alert.AlertType.ERROR, "Wrong input value!", ButtonType.OK).showAndWait();
 		} catch (DateTimeException e) {

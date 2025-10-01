@@ -81,10 +81,9 @@ public class Crud {
 			em.close();
 		}
 	}
-	public void addPozajmica(int id, Clan clan, Knjiga knjiga, LocalDate date){
+	public void addPozajmica(Clan clan, Knjiga knjiga, LocalDate date){
 		EntityManager em = pem.getEntityManager();
 			Pozajmica pozajmica = new Pozajmica();
-			pozajmica.setId(id);
 			pozajmica.setClanClan(clan);
 			pozajmica.setKnjigaKnjiga(knjiga);
 			pozajmica.setPozajmicaUzeto(date);
