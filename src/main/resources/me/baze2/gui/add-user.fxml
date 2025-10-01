@@ -60,8 +60,9 @@
             </TextField>
          </children>
       </HBox>
-      <HBox alignment="CENTER" layoutX="10.0" layoutY="310.0" prefHeight="96.0" prefWidth="200.0">
+      <HBox alignment="CENTER" layoutX="10.0" layoutY="310.0" prefHeight="96.0" prefWidth="200.0" spacing="100.0">
          <children>
+            <Button mnemonicParsing="false" onAction="#onBtnCancelNew" prefHeight="44.0" prefWidth="70.0" text="Cacnel" />
             <Button fx:id="btnUserAdd" mnemonicParsing="false" onAction="#onBtnUserAdd" prefHeight="44.0" prefWidth="70.0" text="Add" />
          </children>
       </HBox>

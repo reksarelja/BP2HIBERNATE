@@ -70,10 +70,14 @@
                </font></TextField>
          </children>
       </HBox>
-      <HBox alignment="CENTER" prefHeight="80.0" prefWidth="200.0">
+      <HBox alignment="CENTER" prefHeight="80.0" prefWidth="200.0" spacing="100.0">
          <children>
-            <Button fx:id="btnAddLoan" mnemonicParsing="false" onAction="#onBtnLoadAdd" prefHeight="44.0" prefWidth="70.0" text="Add" />
+            <Button mnemonicParsing="false" onAction="#onBtnCancelAdd" prefHeight="44.0" prefWidth="70.0" text="Cacnel" />
+            <Button layoutX="235.0" layoutY="27.0" mnemonicParsing="false" onAction="#onBtnLoadAdd" prefHeight="44.0" prefWidth="70.0" text="Add" />
          </children>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
       </HBox>
    </children>
 </VBox>

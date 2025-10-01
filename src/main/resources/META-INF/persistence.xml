@@ -4,12 +4,12 @@
              xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd"
              version="3.0">
   <persistence-unit name="default">
-    <class>me.baze2.entities.Rdj15823Clan</class>
-    <class>me.baze2.entities.Rdj15823Au2Knj</class>
-    <class>me.baze2.entities.Rdj15823Au2KnjId</class>
-    <class>me.baze2.entities.Rdj15823Autor</class>
-    <class>me.baze2.entities.Rdj15823Knjiga</class>
-    <class>me.baze2.entities.Rdj15823Pozajmica</class>
+    <class>me.baze2.entities.Clan</class>
+    <class>me.baze2.entities.Au2Knj</class>
+    <class>me.baze2.entities.Au2KnjId</class>
+    <class>me.baze2.entities.Autor</class>
+    <class>me.baze2.entities.Knjiga</class>
+    <class>me.baze2.entities.Pozajmica</class>
     <properties>
       <property name="jakarta.persistence.jdbc.driver" value="oracle.jdbc.driver.OracleDriver"/>
       <property name="jakarta.persistence.jdbc.url" value="jdbc:oracle:thin:@nastava.is.pmf.uns.ac.rs:1521/baze1"/>

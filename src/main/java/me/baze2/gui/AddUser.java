@@ -1,9 +1,12 @@
 package me.baze2.gui;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import me.baze2.crud.Crud;
 
 public class AddUser {
@@ -28,5 +31,11 @@ public class AddUser {
 			tfldUserName.clear();
 			tfldUserLastName.clear();
 		}
+	}
+	@FXML
+	public void onBtnCancelNew(ActionEvent event){
+		Node source = (Node) event.getSource();
+		Stage currStage = (Stage) source.getScene().getWindow();
+		currStage.close();
 	}
 }

@@ -7,7 +7,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "RDJ15823_AUTOR")
-public class Rdj15823Autor {
+public class Autor {
 	@Id
 	@Column(name = "AUTOR_JMBG", nullable = false)
 	private Long id;
@@ -44,7 +44,7 @@ public class Rdj15823Autor {
 
 	@Override
 	public String toString() {
-		return "Rdj15823Autor {" +
+		return "Autor {" +
 				"id = " + id +
 				", autorIme = " + autorIme +
 				", autorPrezime = " + autorPrezime +

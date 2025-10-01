@@ -2,17 +2,20 @@ package me.baze2.gui;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.ComboBox;
+import javafx.stage.Stage;
 import me.baze2.crud.Crud;
-import me.baze2.entities.Rdj15823Clan;
+import me.baze2.entities.Clan;
 
 public class DeleteUser {
 	
 	@FXML
-	ComboBox<Rdj15823Clan> cmbxDeleteUsers;
+	ComboBox<Clan> cmbxDeleteUsers;
 
-	private final ObservableList<Rdj15823Clan> list = FXCollections.observableArrayList();
+	private final ObservableList<Clan> list = FXCollections.observableArrayList();
 
 	private final Crud crud = new Crud();
 	
@@ -29,5 +32,10 @@ public class DeleteUser {
 		cmbxDeleteUsers.getSelectionModel().clearSelection();
 
 	}
-	
+	@FXML
+	public void onBtnCancelDelete(ActionEvent event){
+		Node source = (Node) event.getSource();
+		Stage currStage = (Stage) source.getScene().getWindow();
+		currStage.close();
+	}
 }

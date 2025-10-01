@@ -1,32 +1,35 @@
 package me.baze2.gui;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import me.baze2.crud.Crud;
-import me.baze2.entities.Rdj15823Clan;
-import me.baze2.entities.Rdj15823Knjiga;
+import me.baze2.entities.Clan;
+import me.baze2.entities.Knjiga;
 
 public class ShowBooks {
 
 	@FXML
-	ComboBox<Rdj15823Clan> cmbxSelectUser;
+	ComboBox<Clan> cmbxSelectUser;
 	
 	@FXML
-	TableView<Rdj15823Knjiga> tblBooks;
+	TableView<Knjiga> tblBooks;
 	
 	@FXML
-	TableColumn<Rdj15823Knjiga, Integer> colID;
+	TableColumn<Knjiga, Integer> colID;
 	@FXML
-	TableColumn<Rdj15823Knjiga, String> colTitle;
+	TableColumn<Knjiga, String> colTitle;
 	@FXML
-	TableColumn<Rdj15823Knjiga, Integer> colYear;
+	TableColumn<Knjiga, Integer> colYear;
 	@FXML
-	TableColumn<Rdj15823Knjiga, Integer> colCopies;
+	TableColumn<Knjiga, Integer> colCopies;
 	@FXML
-	TableColumn<Rdj15823Knjiga, String> colCategory;
+	TableColumn<Knjiga, String> colCategory;
 
 	private final Crud crud = new Crud();
 
@@ -50,5 +53,10 @@ public class ShowBooks {
 
 		tblBooks.setItems(crud.listKnjigeFromClan(cmbxSelectUser.getValue()));
 	}
-
+	@FXML
+	public void onBtnCancelShow(ActionEvent event){
+		Node source = (Node) event.getSource();
+		Stage currStage = (Stage) source.getScene().getWindow();
+		currStage.close();
+	}
 }

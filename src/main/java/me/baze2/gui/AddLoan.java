@@ -3,14 +3,17 @@ package me.baze2.gui;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import me.baze2.crud.Crud;
-import me.baze2.entities.Rdj15823Clan;
-import me.baze2.entities.Rdj15823Knjiga;
+import me.baze2.entities.Clan;
+import me.baze2.entities.Knjiga;
 
 import java.time.DateTimeException;
 import java.time.LocalDate;
@@ -20,14 +23,14 @@ public class AddLoan {
 	@FXML
 	private TextField tfldLoanNo;
 	@FXML
-	private ComboBox<Rdj15823Clan> cmbxLoanUsers;
+	private ComboBox<Clan> cmbxLoanUsers;
 	@FXML
-	private ComboBox<Rdj15823Knjiga> cmbxLoanBooks;
+	private ComboBox<Knjiga> cmbxLoanBooks;
 	@FXML
 	private TextField tfldLoanTakenDate;
 
-	private final ObservableList<Rdj15823Clan> listaClan = FXCollections.observableArrayList();
-	private final ObservableList<Rdj15823Knjiga> listaKnjiga = FXCollections.observableArrayList();
+	private final ObservableList<Clan> listaClan = FXCollections.observableArrayList();
+	private final ObservableList<Knjiga> listaKnjiga = FXCollections.observableArrayList();
 
 
 	private final Crud crud = new Crud();
@@ -48,7 +51,7 @@ public class AddLoan {
 	@FXML
 	public void onBtnLoadAdd(){
 		try {
-			crud.addPozajmica(Long.parseLong(tfldLoanNo.getText()), cmbxLoanUsers.getValue(), cmbxLoanBooks.getValue(), LocalDate.parse(tfldLoanTakenDate.getText()));
+			crud.addPozajmica(Integer.parseInt(tfldLoanNo.getText()), cmbxLoanUsers.getValue(), cmbxLoanBooks.getValue(), LocalDate.parse(tfldLoanTakenDate.getText()));
 		} catch(NumberFormatException e) {
 			new Alert(Alert.AlertType.ERROR, "Wrong input value!", ButtonType.OK).showAndWait();
 		} catch (DateTimeException e) {
@@ -64,5 +67,12 @@ public class AddLoan {
 			listaKnjiga.setAll(crud.listKnjiga());
 		}
 	}
-	
+
+	@FXML
+	public void onBtnCancelAdd(ActionEvent event){
+		Node source = (Node) event.getSource();
+		Stage currStage = (Stage) source.getScene().getWindow();
+		currStage.close();
+	}
+
 }

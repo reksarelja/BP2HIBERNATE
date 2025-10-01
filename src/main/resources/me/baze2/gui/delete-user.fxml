@@ -7,7 +7,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="460.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.baze2.gui.DeleteUser">
    <children>
       <HBox alignment="CENTER" prefHeight="160.0" prefWidth="200.0">
@@ -24,9 +23,10 @@
             <ComboBox fx:id="cmbxDeleteUsers" prefHeight="40.0" prefWidth="200.0" promptText="Users" />
          </children>
       </HBox>
-      <HBox alignment="CENTER" prefHeight="160.0" prefWidth="200.0">
+      <HBox alignment="CENTER" prefHeight="160.0" prefWidth="200.0" spacing="100.0">
          <children>
-            <Button fx:id="btnDeleteUser" mnemonicParsing="false" onAction="#onBtnDeleteUser" prefHeight="40.0" text="Delete" />
+            <Button fx:id="btnDeleteUser" mnemonicParsing="false" onAction="#onBtnCancelDelete" prefHeight="40.0" text="Cancel" />
+            <Button fx:id="btnDeleteUser1" layoutX="135.0" layoutY="67.0" mnemonicParsing="false" onAction="#onBtnDeleteUser" prefHeight="40.0" text="Delete" />
          </children>
       </HBox>
    </children>

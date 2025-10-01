@@ -7,7 +7,7 @@ import org.hibernate.Hibernate;
 import java.util.Objects;
 
 @Embeddable
-public class Rdj15823Au2KnjId implements java.io.Serializable {
+public class Au2KnjId implements java.io.Serializable {
 	private static final long serialVersionUID = 5669262795591504499L;
 	@Column(name = "AUTOR_AUTOR_JMBG", nullable = false)
 	private Long autorAutorJmbg;
@@ -35,7 +35,7 @@ public class Rdj15823Au2KnjId implements java.io.Serializable {
 	public boolean equals(Object o) {
 		if(this == o) return true;
 		if(o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-		Rdj15823Au2KnjId entity = (Rdj15823Au2KnjId) o;
+		Au2KnjId entity = (Au2KnjId) o;
 		return Objects.equals(this.autorAutorJmbg, entity.autorAutorJmbg) &&
 				Objects.equals(this.knjigaKnjigaId, entity.knjigaKnjigaId);
 	}

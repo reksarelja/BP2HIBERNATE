@@ -8,10 +8,10 @@ import java.time.LocalDate;
 
 @Entity
 @Table(name = "RDJ15823_POZAJMICA")
-public class Rdj15823Pozajmica {
+public class Pozajmica {
 	@Id
 	@Column(name = "POZAJMICA_BROJ", nullable = false)
-	private Long id;
+	private int id;
 
 	@Column(name = "POZAJMICA_UZETO", nullable = false)
 	private LocalDate pozajmicaUzeto;
@@ -22,18 +22,18 @@ public class Rdj15823Pozajmica {
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@OnDelete(action = OnDeleteAction.CASCADE)
 	@JoinColumn(name = "\"ČLAN_CLAN_JMBG\"", nullable = false)
-	private Rdj15823Clan clanClan;
+	private Clan clanClan;
 
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@OnDelete(action = OnDeleteAction.CASCADE)
 	@JoinColumn(name = "KNJIGA_KNJIGA_ID", nullable = false)
-	private Rdj15823Knjiga knjigaKnjiga;
+	private Knjiga knjigaKnjiga;
 
-	public Long getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
@@ -53,25 +53,25 @@ public class Rdj15823Pozajmica {
 		this.pozajmicaVraceno = pozajmicaVraceno;
 	}
 
-	public Rdj15823Clan getClanClan() {
+	public Clan getClanClan() {
 		return clanClan;
 	}
 
-	public void setClanClan(Rdj15823Clan clanClan) {
+	public void setClanClan(Clan clanClan) {
 		this.clanClan = clanClan;
 	}
 
-	public Rdj15823Knjiga getKnjigaKnjiga() {
+	public Knjiga getKnjigaKnjiga() {
 		return knjigaKnjiga;
 	}
 
-	public void setKnjigaKnjiga(Rdj15823Knjiga knjigaKnjiga) {
+	public void setKnjigaKnjiga(Knjiga knjigaKnjiga) {
 		this.knjigaKnjiga = knjigaKnjiga;
 	}
 
 	@Override
 	public String toString() {
-		return "Rdj15823Pozajmica { " +
+		return "Pozajmica { " +
 				"id = " + id +
 				", pozajmicaUzeto = " + pozajmicaUzeto +
 				", pozajmicaVraceno = " + pozajmicaVraceno +
